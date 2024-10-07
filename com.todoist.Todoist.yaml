@@ -18,6 +18,7 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --env=TODOIST_DISABLE_GPU=0
   - --env=TODOIST_ENABLE_AUTOSCROLL=0
+  - --env=TODOIST_PERSIST_LOGIN=1
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons:~/.icons
 modules:
   - shared-modules/lzo/lzo.json

@@ -12,6 +12,10 @@ add_argument() {
     fi
 }
 
+# Fix logout on every app restart
+# Secrets will not be stored in the keyring
+add_argument TODOIST_PERSIST_LOGIN --password-store=basic
+
 # Nvidia GPUs may need to disable GPU acceleration:
 # flatpak override --user --env=TODOIST_DISABLE_GPU=1 com.todoist.Todoist
 add_argument TODOIST_DISABLE_GPU --disable-gpu
