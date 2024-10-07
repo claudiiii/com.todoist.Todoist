@@ -25,11 +25,11 @@ modules:
   - name: todoist
     buildsystem: simple
     build-commands:
-      - unsquashfs -quiet -no-progress -exclude-file snap_exclude -dest todoist todoist.snap
+      - unsquashfs -quiet -no-progress -dest todoist todoist.snap
       - rm todoist.snap
       - install todoist.sh "${FLATPAK_DEST}/bin/todoist"
-      - install -Dm644 todoist/gui/icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - install -Dm644 todoist/gui/todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm644 todoist/meta/gui/icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - install -Dm644 todoist/meta/gui/todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
       - type: file
@@ -45,5 +45,3 @@ modules:
         path: todoist.sh
       - type: file
         path: com.todoist.Todoist.metainfo.xml
-      - type: file
-        path: snap_exclude
