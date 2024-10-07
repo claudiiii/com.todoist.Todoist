@@ -33,7 +33,7 @@ modules:
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
       - type: file
-        filename: todoist.snap
+        dest-filename: todoist.snap
         url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1323.snap
         sha256: 5c18b5928dbe287fb0653b25f59d28e04789691c30879c40750045e5e357bcf2
         size: 96387072
