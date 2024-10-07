@@ -1,8 +1,8 @@
 app-id: com.todoist.Todoist
 base: org.electronjs.Electron2.BaseApp
-base-version: '24.08'
+base-version: "24.08"
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: "24.08"
 sdk: org.freedesktop.Sdk
 command: todoist
 tags:
@@ -29,7 +29,7 @@ modules:
       - rm todoist.snap
       - install todoist.sh "${FLATPAK_DEST}/bin/todoist"
       - install -Dm644 todoist/meta/gui/icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - install -Dm644 todoist/meta/gui/todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm644 com.todoist.Todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
       - type: file
@@ -45,3 +45,5 @@ modules:
         path: todoist.sh
       - type: file
         path: com.todoist.Todoist.metainfo.xml
+      - type: file
+        path: com.todoist.Todoist.desktop
