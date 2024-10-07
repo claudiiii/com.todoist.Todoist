@@ -16,29 +16,22 @@ finish-args:
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  - --env=TODOIST_DISABLE_GPU=0
+  - --env=TODOIST_ENABLE_AUTOSCROLL=0
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons:~/.icons
 modules:
   - shared-modules/lzo/lzo.json
   - shared-modules/squashfs-tools/squashfs-tools.json
   - name: todoist
     buildsystem: simple
     build-commands:
-      - install apply_extra "${FLATPAK_DEST}/bin/apply_extra"
+      - unsquashfs -quiet -no-progress -exclude-file snap_exclude -dest todoist todoist.snap
+      - rm todoist.snap
       - install todoist.sh "${FLATPAK_DEST}/bin/todoist"
-    post-install:
-      - install -Dm644 -p icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
-      - install -Dm644 todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install -Dm644 todoist/gui/icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - install -Dm644 todoist/gui/todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
-      - type: script
-        dest-filename: apply_extra
-        commands:
-          # TODO: Spotify simply includes -no-progress here and does not create
-          # noise, but it does not work here
-          - unsquashfs todoist.snap 1>/dev/null
-          - rm todoist.snap
-          # TODO: This moves in a lot of junk too
-          - mv squashfs-root todoist
-          - touch todoist/chrome-sandbox && chmod +x todoist/chrome-sandbox
       - type: extra-data
         filename: todoist.snap
         url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1323.snap
@@ -53,6 +46,4 @@ modules:
       - type: file
         path: com.todoist.Todoist.metainfo.xml
       - type: file
-        path: todoist.desktop
-      - type: file
-        path: icon.png
+        path: snap_exclude
