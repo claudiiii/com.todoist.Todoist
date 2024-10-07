@@ -29,15 +29,6 @@ modules:
       - install -Dm644 todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
-      - type: extra-data
-        filename: todoist.snap
-        url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1270.snap
-        sha256: 7932806859e3fb123a72bcab3c3e44b45e88560aa329e00752bb339239fdfa93
-        size: 87150592
-        x-checker-data:
-          type: snapcraft
-          name: todoist
-          channel: stable
       - type: script
         dest-filename: apply_extra
         commands:
@@ -48,6 +39,15 @@ modules:
           # TODO: This moves in a lot of junk too
           - mv squashfs-root todoist
           - touch todoist/chrome-sandbox && chmod +x todoist/chrome-sandbox
+      - type: extra-data
+        filename: todoist.snap
+        url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1270.snap
+        sha256: 7932806859e3fb123a72bcab3c3e44b45e88560aa329e00752bb339239fdfa93
+        size: 87150592
+        x-checker-data:
+          type: snapcraft
+          name: todoist
+          channel: stable
       - type: file
         path: todoist.sh
       - type: file
