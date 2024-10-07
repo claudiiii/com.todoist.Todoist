@@ -27,6 +27,7 @@ modules:
     build-commands:
       - unsquashfs -quiet -no-progress -dest todoist todoist.snap
       - rm todoist.snap
+      - cp -r todoist/* "${FLATPAK_DEST}"
       - install todoist.sh "${FLATPAK_DEST}/bin/todoist"
       - install -Dm644 todoist/meta/gui/icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
       - install -Dm644 com.todoist.Todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"

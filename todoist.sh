@@ -38,4 +38,4 @@ echo "Debug: Additionally, user gave: $@"
 export FLATPAK_ID="${FLATPAK_ID:-com.todoist.Todoist}"
 export TMPDIR="${XDG_RUNTIME_DIR}/app/${FLATPAK_ID}"
 
-zypak-wrapper /app/todoist/todoist $@ ${EXTRA_ARGS[@]}
+zypak-wrapper /app/todoist $@ ${EXTRA_ARGS[@]}
