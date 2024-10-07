@@ -1,8 +1,8 @@
 app-id: com.todoist.Todoist
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: '24.08'
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: todoist
 tags:
@@ -17,24 +17,14 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
 modules:
-  - name: squashfs-tools
-    buildsystem: simple
-    build-commands:
-      - XZ_SUPPORT=1 make -C squashfs-tools -j ${FLATPAK_BUILDER_N_JOBS} install INSTALL_DIR=${FLATPAK_DEST}/bin
-    sources:
-      - type: archive
-        url: https://github.com/plougher/squashfs-tools/archive/4.4-git.1.tar.gz
-        sha256: 9b89c3d2f0d0456e99fa3dd4429d45044044f0115acb0f15c441a4b9496d25a7
-
-  - shared-modules/libsecret/libsecret.json
-
+  - shared-modules/squashfs-tools/squashfs-tools.json
   - name: todoist
     buildsystem: simple
     build-commands:
-      - install -D apply_extra "${FLATPAK_DEST}/bin/apply_extra"
+      - install apply_extra "${FLATPAK_DEST}/bin/apply_extra"
       - install todoist.sh "${FLATPAK_DEST}/bin/todoist"
     post-install:
-      - install -p -Dm644 "icon.png" "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
+      - install -Dm644 -p icon.png "${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png"
       - install -Dm644 todoist.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
       - install -Dm644 com.todoist.Todoist.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
     sources:
