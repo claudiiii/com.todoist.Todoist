@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/claudiiii/com.todoist.Todoist/compare/v1.0.0...v2.0.0) (2024-10-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* persist login
+* copy snap contents to flatpak
+
+### Bug Fixes
+
+* copy snap contents to flatpak ([dededcb](https://github.com/claudiiii/com.todoist.Todoist/commit/dededcb3070dbb7c04140c64e887ac497bb8fdfb))
+* persist login ([dafaead](https://github.com/claudiiii/com.todoist.Todoist/commit/dafaead176a3f7606ec6b657a4ba455100bc039b))
+
 ## 1.0.0 (2024-10-07)
 
 
