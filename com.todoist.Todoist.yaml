@@ -1,8 +1,8 @@
 app-id: com.todoist.Todoist
 base: org.electronjs.Electron2.BaseApp
-base-version: "24.08"
+base-version: '24.08'
 runtime: org.freedesktop.Platform
-runtime-version: "24.08"
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: todoist
 tags:
@@ -36,9 +36,8 @@ modules:
     sources:
       - type: file
         dest-filename: todoist.snap
-        url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1323.snap
-        sha256: 5c18b5928dbe287fb0653b25f59d28e04789691c30879c40750045e5e357bcf2
-        size: 96387072
+        url: https://api.snapcraft.io/api/v1/snaps/download/pP800io06HKwwkUmX8gDG1pFCfsinLHY_1324.snap
+        sha256: 97a5fe2e0587012d0d932b10b0fdb4512934b3093125fd45e8e745627d435796
         x-checker-data:
           type: snapcraft
           name: todoist
